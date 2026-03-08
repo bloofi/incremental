@@ -1,0 +1,603 @@
+{
+    "values": {
+        "skill.mouse.enabled": false,
+        "skill.mouse.circle.enabled": false,
+        "skill.mouse.circle.radius.value": 0,
+        "skill.mouse.ulti.enabled": false,
+        "skill.move.enabled": false,
+        "skill.move.horizontal.enabled": false,
+        "skill.move.horizontal.speed.value": 0,
+        "skill.move.vertical.enabled": false,
+        "skill.move.vertical.speed.value": 0,
+        "skill.coins.enabled": false,
+        "skill.coins.delay.value": 0,
+        "skill.coins.bronze.enabled": false,
+        "skill.coins.bronze.rate.value": 0,
+        "skill.coins.bronze.gain.value": 0,
+        "skill.coins.silver.enabled": false,
+        "skill.coins.silver.rate.value": 0,
+        "skill.coins.silver.gain.value": 0,
+        "skill.coins.gold.enabled": false,
+        "skill.coins.gold.rate.value": 0,
+        "skill.coins.gold.gain.value": 0,
+        "skill.coins.diamond.enabled": false,
+        "skill.coins.diamond.rate.value": 0,
+        "skill.coins.diamond.gain.value": 0
+    },
+    "skills": [
+        {
+            "id": "skill.mouse",
+            "name": "Mouse Click",
+            "desc": "Collect coin by clicking on it",
+            "cost": 0,
+            "changes": {
+                "skill.mouse.enabled": true
+            },
+            "children": [
+                {
+                    "id": "skill.mouse.circle",
+                    "name": "Circle damage",
+                    "desc": "Collect coin by moving circle near it",
+                    "cost": 1,
+                    "changes": {
+                        "skill.mouse.circle.enabled": true
+                    },
+                    "children": [
+                        {
+                            "id": "skill.mouse.circle.radius",
+                            "name": "Circle radius",
+                            "desc": "Upgrade circle radius",
+                            "cost": 0,
+                            "changes": {
+                                "skill.mouse.circle.radius.value": 5
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.mouse.circle.radius.1",
+                                    "name": "Bigger circle by 10%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.mouse.circle.radius.value": 6
+                                    }
+                                },
+                                {
+                                    "id": "skill.mouse.circle.radius.2",
+                                    "name": "Bigger circle by 20%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.mouse.circle.radius.value": 8
+                                    }
+                                },
+                                {
+                                    "id": "skill.mouse.circle.radius.3",
+                                    "name": "Bigger circle by 50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.mouse.circle.radius.value": 10
+                                    }
+                                },
+                                {
+                                    "id": "skill.mouse.circle.radius.4",
+                                    "name": "Bigger circle by 50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.mouse.circle.radius.value": 13
+                                    }
+                                },
+                                {
+                                    "id": "skill.mouse.circle.radius.5",
+                                    "name": "Bigger circle by 50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.mouse.circle.radius.value": 18
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "skill.mouse.ulti",
+                    "name": "Kill all",
+                    "cost": 1,
+                    "changes": {
+                        "skill.mouse.ulti.enabled": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": "skill.move",
+            "name": "Move",
+            "cost": 1,
+            "changes": {
+                "skill.move.enabled": true
+            },
+            "children": [
+                {
+                    "id": "skill.move.horizontal",
+                    "name": "Move left / right",
+                    "cost": 0,
+                    "changes": {
+                        "skill.move.horizontal.enabled": true
+                    },
+                    "children": [
+                        {
+                            "id": "skill.move.horizontal.speed",
+                            "name": "Move left / right faster",
+                            "cost": 0,
+                            "changes": {
+                                "skill.move.horizontal.speed.value": 1
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.move.horizontal.speed.1",
+                                    "name": "Move faster by 10%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.move.horizontal.speed.value": 1.1
+                                    }
+                                },
+                                {
+                                    "id": "skill.move.horizontal.speed.2",
+                                    "name": "Move faster by 20%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.move.horizontal.speed.value": 1.2
+                                    }
+                                },
+                                {
+                                    "id": "skill.move.horizontal.speed.3",
+                                    "name": "Move faster by 50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.move.horizontal.speed.value": 1.5
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "skill.move.vertical",
+                    "name": "Move up / down",
+                    "cost": 1,
+                    "changes": {
+                        "skill.move.vertical.enabled": true
+                    },
+                    "children": [
+                        {
+                            "id": "skill.move.vertical.speed",
+                            "name": "Move up / down faster",
+                            "cost": 0,
+                            "changes": {
+                                "skill.move.vertical.speed.value": 1
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.move.vertical.speed.1",
+                                    "name": "Move faster by 10%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.move.vertical.speed.value": 1.1
+                                    }
+                                },
+                                {
+                                    "id": "skill.move.vertical.speed.2",
+                                    "name": "Move faster by 20%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.move.vertical.speed.value": 1.2
+                                    }
+                                },
+                                {
+                                    "id": "skill.move.vertical.speed.3",
+                                    "name": "Move faster by 50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.move.vertical.speed.value": 1.5
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "skill.coins",
+            "name": "Coins",
+            "cost": 0,
+            "changes": {
+                "skill.coins.enabled": true
+            },
+            "children": [
+                {
+                    "id": "skill.coins.delay",
+                    "name": "Spawn Coin delay",
+                    "cost": 0,
+                    "changes": {
+                        "skill.coins.delay.value": 0.2
+                    },
+                    "upgrades": [
+                        {
+                            "id": "skill.coins.delay.1",
+                            "name": "Spawn Coin faster !",
+                            "cost": 1,
+                            "changes": {
+                                "skill.coins.delay.value": 0.3
+                            }
+                        },
+                        {
+                            "id": "skill.coins.delay.2",
+                            "name": "Spawn Coin even faster !",
+                            "cost": 1,
+                            "changes": {
+                                "skill.coins.delay.value": 0.5
+                            }
+                        },
+                        {
+                            "id": "skill.coins.delay.3",
+                            "name": "Spawn Coin even even faster !",
+                            "cost": 1,
+                            "changes": {
+                                "skill.coins.delay.value": 0.8
+                            }
+                        },
+                        {
+                            "id": "skill.coins.delay.4",
+                            "name": "Spawn Coin even even even faster !",
+                            "cost": 1,
+                            "changes": {
+                                "skill.coins.delay.value": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "skill.coins.bronze",
+                    "name": "Spawn Bronze coins",
+                    "cost": 0,
+                    "changes": {
+                        "skill.coins.bronze.enabled": true,
+                        "skill.coins.bronze.rate.value": 1
+                    },
+                    "children": [
+                        {
+                            "id": "skill.coins.bronze.gain",
+                            "name": "Bronze coins gain",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.bronze.gain.value": 1
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.bronze.gain.1",
+                                    "name": "Bronze coins gain x2",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.bronze.gain.value": 2
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.bronze.gain.2",
+                                    "name": "Bronze coins gain x5",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.bronze.gain.value": 5
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.bronze.gain.3",
+                                    "name": "Bronze coins gain x15",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.bronze.gain.value": 15
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.bronze.gain.4",
+                                    "name": "Bronze coins gain x50",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.bronze.gain.value": 50
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "skill.coins.bronze.rate",
+                            "name": "100% chance !",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.bronze.rate.value": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "skill.coins.silver",
+                    "name": "Spawn Silver coins",
+                    "cost": 1,
+                    "changes": {
+                        "skill.coins.silver.enabled": true
+                    },
+                    "children": [
+                        {
+                            "id": "skill.coins.silver.gain",
+                            "name": "Silver coins gain",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.silver.gain.value": 5
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.silver.gain.1",
+                                    "name": "Silver coins gain x2",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.gain.value": 10
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.silver.gain.2",
+                                    "name": "Silver coins gain x5",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.gain.value": 30
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.silver.gain.3",
+                                    "name": "Silver coins gain x15",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.gain.value": 60
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.silver.gain.4",
+                                    "name": "Silver coins gain x50",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.gain.value": 100
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "skill.coins.silver.rate",
+                            "name": "Silver coins spawn chance",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.silver.rate": 0.2
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.silver.rate.1",
+                                    "name": "Silver coins rate +10%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.rate.value": 0.22
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.silver.rate.2",
+                                    "name": "Silver coins rate +20%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.rate.value": 0.25
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.silver.rate.3",
+                                    "name": "Silver coins rate +50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.rate.value": 0.3
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.silver.rate.4",
+                                    "name": "Silver coins rate +75%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.silver.rate.value": 0.35
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "skill.coins.gold",
+                    "name": "Spawn Gold coins",
+                    "cost": 1,
+                    "changes": {
+                        "skill.coins.gold.enabled": true
+                    },
+                    "children": [
+                        {
+                            "id": "skill.coins.gold.gain",
+                            "name": "Gold coins gain",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.gold.gain.value": 10
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.gold.gain.1",
+                                    "name": "Gold coins gain x2",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.gain.value": 25
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.gold.gain.2",
+                                    "name": "gold coins gain x5",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.gain.value": 50
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.gold.gain.3",
+                                    "name": "gold coins gain x15",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.gain.value": 90
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.gold.gain.4",
+                                    "name": "gold coins gain x50",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.gain.value": 150
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "skill.coins.gold.rate",
+                            "name": "gold coins spawn chance",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.gold.rate": 0.07
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.gold.rate.1",
+                                    "name": "gold coins rate +10%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.rate.value": 0.1
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.gold.rate.2",
+                                    "name": "gold coins rate +20%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.rate.value": 0.15
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.gold.rate.3",
+                                    "name": "gold coins rate +50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.rate.value": 0.2
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.gold.rate.4",
+                                    "name": "gold coins rate +75%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.gold.rate.value": 0.3
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "skill.coins.diamond",
+                    "name": "Spawn Diamond coins",
+                    "cost": 1,
+                    "changes": {
+                        "skill.coins.diamond.enabled": true
+                    },
+                    "children": [
+                        {
+                            "id": "skill.coins.diamond.gain",
+                            "name": "diamond coins gain",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.diamond.gain.value": 50
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.diamond.gain.1",
+                                    "name": "diamond coins gain x2",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.gain.value": 70
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.diamond.gain.2",
+                                    "name": "diamond coins gain x5",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.gain.value": 100
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.diamond.gain.3",
+                                    "name": "diamond coins gain x15",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.gain.value": 140
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.diamond.gain.4",
+                                    "name": "diamond coins gain x50",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.gain.value": 200
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "skill.coins.diamond.rate",
+                            "name": "diamond coins spawn chance",
+                            "cost": 0,
+                            "changes": {
+                                "skill.coins.diamond.rate": 0.03
+                            },
+                            "upgrades": [
+                                {
+                                    "id": "skill.coins.diamond.rate.1",
+                                    "name": "diamond coins rate +10%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.rate.value": 0.05
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.diamond.rate.2",
+                                    "name": "diamond coins rate +20%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.rate.value": 0.08
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.diamond.rate.3",
+                                    "name": "diamond coins rate +50%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.rate.value": 0.11
+                                    }
+                                },
+                                {
+                                    "id": "skill.coins.diamond.rate.4",
+                                    "name": "diamond coins rate +75%",
+                                    "cost": 1,
+                                    "changes": {
+                                        "skill.coins.diamond.rate.value": 0.15
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

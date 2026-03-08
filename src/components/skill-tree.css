@@ -1,0 +1,130 @@
+@keyframes noAnim {
+}
+
+@keyframes showing {
+    0% {
+        filter: blur(20px);
+        opacity: 0;
+    }
+    90% {
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes hiding {
+    0% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        filter: blur(20px);
+    }
+}
+
+.border-hand-drawn {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.font-ScribbleShow {
+    font-family: "Scribble Show", sans-serif;
+}
+
+@font-face {
+    font-family: "Scribble Show";
+    src: url("/fonts/Scribble Show.ttf");
+}
+
+.tree-view-wrapper {
+    position: fixed;
+    top: 5%;
+    left: 25%;
+    width: 50%;
+    height: 80%;
+    background: #000000aa;
+    border: solid 5px #ffffffdd;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding: 0.5rem 0.5rem;
+}
+
+.tree-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: "Scribble Show", sans-serif;
+    overflow: scroll;
+    scrollbar-color: #ffffffaa transparent;
+    padding-right: 0.5rem;
+}
+
+.tree-view .tree-node {
+    display: flex;
+    flex-direction: column;
+}
+
+.tree-view .tree-node-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tree-view .tree-node-title:hover label {
+    background: linear-gradient(to right, transparent, #ffffff22 10%, #ffffff22 90%, transparent 100%);
+}
+
+.tree-view .tree-node-title button {
+    border: none;
+    font-size: 2rem;
+    font-family: "Scribble Show", sans-serif;
+    background: none;
+    padding: 0.1rem 0.5rem;
+    border: 3px solid #ffffff55;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.tree-view .tree-node-title button.not-affordable {
+    color: #ff000055;
+    border-color: #ff000055;
+    cursor: not-allowed;
+}
+.tree-view .tree-node-title button.affordable {
+    color: #00ff0055;
+    border-color: #00ff0055;
+}
+
+.tree-view .tree-node-title:hover button.affordable {
+    color: #ddffddcc;
+    background-color: #00ff0055;
+}
+
+.tree-view .tree-node-content {
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tree-view label {
+    color: white;
+}
+
+.tree-view .tree-node[data-depth="0"] label {
+    font-size: 3rem;
+}
+
+.tree-view .tree-node[data-depth="1"] label {
+    font-size: 2rem;
+}
+
+.tree-view .tree-node[data-depth="2"] label {
+    font-size: 1.5rem;
+}
