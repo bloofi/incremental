@@ -12,7 +12,7 @@ import {
     type SkillRecord,
 } from "../game/types";
 import { useAppDispatch, useAppSelector } from "../store";
-import { selectIsRunning, selectSkillValues, toggleSkillTree } from "../store/game-slice";
+import { selectIsRunning, selectShowSkillTree, selectSkillValues, toggleSkillTree } from "../store/game-slice";
 import { ResourcesMapping, selectGetModels, selectGetSkyboxes } from "../store/resources-slice";
 import { createWorkerSendAction } from "../store/worker-middleware";
 import FreeLookControls from "../utils/free-look-controls";
@@ -32,6 +32,8 @@ export default function GameCanvas() {
     const models = useAppSelector(selectGetModels);
     const isRunning = useAppSelector(selectIsRunning);
     const skillValues = useAppSelector(selectSkillValues);
+    const showSkillTree = useAppSelector(selectShowSkillTree);
+    const showSkillTreeRef = useRef(false);
     const skillValuesRef = useRef<SkillRecord>(null);
     const dispatch = useAppDispatch();
 
@@ -148,6 +150,10 @@ export default function GameCanvas() {
         skillValuesRef.current = skillValues;
     }, [skillValues]);
 
+    useEffect(() => {
+        showSkillTreeRef.current = showSkillTree;
+    }, [showSkillTree]);
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // User Inputs
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,11 +161,18 @@ export default function GameCanvas() {
     const onKeyDownCallback = useDebounceCallback(
         (event: KeyboardEvent) => {
             switch (event.code) {
-                case "Space":
-                    dispatch(toggleSkillTree());
+                case "Space": {
+                    if (isRunningRef.current) {
+                        dispatch(toggleSkillTree());
+                    }
                     event.preventDefault();
                     break;
-                case "Enter": {
+                }
+                case "Enter":
+                case "Escape": {
+                    if (showSkillTreeRef.current) {
+                        dispatch(toggleSkillTree());
+                    }
                     postToWorker({
                         type: isRunningRef.current ? GameEngineActionTypes.STOP : GameEngineActionTypes.START,
                     });
@@ -175,6 +188,9 @@ export default function GameCanvas() {
                     event.preventDefault();
                     break;
                 }
+                default:
+                    console.log(`Ignore key [${event.code}]`);
+                    break;
             }
         },
         20,

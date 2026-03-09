@@ -4,22 +4,28 @@ import {
     faArrowCircleRight,
     faArrowCircleUp,
     faChartDiagram,
+    faCirclePause,
+    faCirclePlay,
     faCoins,
     faSackDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMemo } from "react";
 
-import { GameCoinTypes } from "../game/types";
-import { useAppSelector } from "../store";
-import { selectCoins, selectCurrentMoney, selectIsRunning, selectSkillValues } from "../store/game-slice";
+import "./game-overlay.css";
+import { GameCoinTypes, GameEngineActionTypes } from "../game/types";
+import { useAppDispatch, useAppSelector } from "../store";
+import { selectCoins, selectCurrentMoney, selectIsRunning, selectShowSkillTree, selectSkillValues } from "../store/game-slice";
 import { kmgt } from "../utils/helpers";
+import { createWorkerSendAction } from "../store/worker-middleware";
 
 export default function GameOverlay() {
     const currentMoney = useAppSelector(selectCurrentMoney);
     const coins = useAppSelector(selectCoins);
     const isRunning = useAppSelector(selectIsRunning);
     const skillValues = useAppSelector(selectSkillValues);
+    const showSkillTree = useAppSelector(selectShowSkillTree);
+    const dispatch = useAppDispatch();
 
     const displayedMoney = useMemo(() => {
         const kmgtMoney = kmgt(currentMoney);
@@ -77,16 +83,16 @@ export default function GameOverlay() {
             <div
                 style={{
                     position: "absolute",
-                    top: 0,
+                    top: 10,
                     right: 10,
-                    color: "white",
+                    color: "#ffffffaa",
                     fontSize: "3em",
                     display: "flex",
                     flexDirection: "column",
                     pointerEvents: "none",
                 }}
             >
-                <span>{isRunning ? "▶" : "⏯"}</span>
+                {isRunning ? <FontAwesomeIcon icon={faCirclePlay} /> : <FontAwesomeIcon icon={faCirclePause} />}
             </div>
             <div
                 style={{
@@ -101,10 +107,12 @@ export default function GameOverlay() {
                     pointerEvents: "none",
                 }}
             >
-                <div>
-                    <FontAwesomeIcon icon={faChartDiagram} />
-                    [Space]
-                </div>
+                {isRunning && (
+                    <div>
+                        <FontAwesomeIcon icon={faChartDiagram} />
+                        [Space]
+                    </div>
+                )}
             </div>
 
             {skillValues?.["skill.move.horizontal.enabled"] && (
@@ -155,6 +163,27 @@ export default function GameOverlay() {
                     <div style={{ textAlign: "center" }}>
                         <FontAwesomeIcon icon={faArrowCircleDown} />
                         [S]
+                    </div>
+                </div>
+            )}
+            {!isRunning && !showSkillTree && (
+                <div className="pause-overlay">
+                    <span>[Enter] to resume game</span>
+                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                        <button
+                            onClick={() => {
+                                dispatch(createWorkerSendAction({ type: GameEngineActionTypes.RESET }));
+                            }}
+                        >
+                            Reset
+                        </button>
+                        <button
+                            onClick={() => {
+                                dispatch(createWorkerSendAction({ type: GameEngineActionTypes.START }));
+                            }}
+                        >
+                            Resume
+                        </button>
                     </div>
                 </div>
             )}

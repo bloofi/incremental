@@ -1,0 +1,34 @@
+.pause-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-self: center;
+    align-self: center;
+    color: #ffffffaa;
+    font-size: 4em;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border-width: 5px;
+    border-style: solid;
+    background-color: #000000aa;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.pause-overlay button {
+    font-size: 3rem;
+    font-family: "Scribble Show", sans-serif;
+    background: none;
+    padding: 0.1rem 0.5rem;
+    border: 3px solid #ffffff55;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: #ffffffaa;
+}
+.pause-overlay button:hover {
+    background-color: #ffffff55;
+    color: #ffffffcc;
+}
